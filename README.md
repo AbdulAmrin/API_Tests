@@ -30,7 +30,7 @@
 * PATCH API with resource /patch - validating the response status code and json data
 * GET API with resource /get - validating the response status code and logs json response
 * DELETE API with resource /delete - validating the response status code and json data
-* Additionally we can implment request chaining but for the sake for simplicity i have validated independent test cases for each HTTP API methods
+* Additionally we can implement request chaining but for the sake for simplicity i have validated independent test cases for each HTTP API methods
 (please let me know if this was the requirement)
 
 
