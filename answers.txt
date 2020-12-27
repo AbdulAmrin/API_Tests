@@ -1,0 +1,63 @@
+1. What test design techniques would you use to test a feature which grants user access to certain resources depending on their age? For example: if a user is older than XX then access granted.
+
+--------answer-----
+Identify the Equivalence classes using Equivalence Class Partitioning Technique supported with Boundary Value Analysis(BVA) to design test data
+
+
+2. Given two web services: A and B. Service A is calling service B and expects a response with HTTP code 200 (OK).
+
+Sometimes due to internal problems in service B, it responds with HTTP code 500 (Internal server error).
+
+Your task is to test that service A handles this 500 response gracefully (doesn't crash and logs the error).
+
+How would you do it?
+
+--------answer-----
+We can use the concept of mocking/stubbing in integration testing.
+So by mocking the response of service B being used by service A we will be able to test for various HTTP response codes that service A returns even without the actual implementation of service A or when service A is not ready.
+Try mocking service A with invalid/empty/valid response and analyze the condition for which service A returns status 500
+
+
+3. Read the description of the following service and solve the assignment:
+
+The Service Under Test
+
+Transfer-Service is a service with a REST API that processes money transfers. To validate account information, Transfer-Service must interact with Account-Guard-Service, which is a third-party platform Two Scenarios Must be Automated:
+
+SCENARIO: account information is valid, and transaction is accepted. GIVEN: a customer making a transfer from account-A to account-B.
+
+WHEN: Transfer-Service calls Account-Guard-Service to validate the account information.
+
+THEN: Account-Guard-Service returns HTTP-200.
+
+AND: Transfer-Service accepts the transaction.
+
+SCENARIO: account information is invalid, and transaction is rejected. GIVEN: a customer making a transfer from account-A to account-B.
+
+WHEN: Transfer-Service calls Account-Guard-Service to validate the account information.
+
+THEN: Account-Guard-Service returns HTTP-403.
+
+AND: Transfer-Service rejects the transaction.
+
+The Problem:
+
+The development team has a CI pipeline that runs at any time whenever a change is made in Transfer-Service. However, the Account-Guard-Service is only available for testing every day from 1:00am to 3:00am.
+
+Assignment:
+
+After considering the problem described above, which of the solutions proposed below do you consider the most appropriate to approach the automation of the scenarios above?
+
+a- Test Transfer-Service against a mock of Account-Guard-Service and do not use the real Account-Guard-Service at all as it must be properly tested by its provider.
+
+b- Do not automate this case as it is dependent on an external service and may fail due to uncontrollable circumstances.
+
+c- Test Transfer-Service using a mock of Account-Guard-Service during the normal CI phase and add a scheduled job that runs between 1:00 am to 3:00 am to test against the real Account-Guard-Service.
+
+d- Add a scheduled job that runs between 1:00 am to 3:00 am to test against the real Account-Guard-Service and exclude these tests completely from the normal CI pipeline.
+
+--------answer-----
+c- Test Transfer-Service using a mock of Account-Guard-Service during the normal CI phase and add a scheduled job that runs between 1:00 am to 3:00 am to test against the real Account-Guard-Service.
+Depending only on mock of Account-Guard-Service can lead to false positives.
+Idea behind automation is to mimic real user scenario including network latency so try to use real Account -Guard Service when they are available.
+   
