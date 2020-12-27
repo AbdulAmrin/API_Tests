@@ -14,7 +14,7 @@
    * pip install robotframework-jsonlibrary
    * Clone the Gihub Repository <https://github.com/AbdulAmrin/API_Tests.git>
    * Go to `test-->TestSuites-->Api_Tests.robot` and then execute the below command:-
-     `robot  --outputdir ./Reports Api_Tests.robot`
+     ```robot  --outputdir ./Reports Api_Tests.robot```
   
 
 ## Reporting Format
