@@ -8,6 +8,14 @@
 
 * Nothing to install manually.
 * Use the existing CI pipeline inorder to configure with CircleCi,dockerhub..etc
+* Inorder to run manually install python first then install below mentioned libraries:-
+   * pip install robotframework
+   * pip install robotframework-requestslibrary
+   * pip install robotframework-jsonlibrary
+   * Clone the Gihub Repository <https://github.com/AbdulAmrin/API_Tests.git>
+   * Go to `test-->TestSuites-->Api_Tests.robot` and then execute the below command:-
+     `robot  --outputdir ./Reports Api_Tests.robot`
+  
 
 ## Reporting Format
 
