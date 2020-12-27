@@ -32,15 +32,6 @@
 * DELETE API with resource /delete - validating the response status code and json data
 
 
-## Test Cases
-
-* Test Cases are in API_Tests.robot file (Calculator_API_Tests-->test-->TestSuites-->API_Tests.robot)
-* Test Cases include:-
-* Testing POST API to validate the response received based on the input provided
-* Validate whether GET API displays recent results for a new user with no equations submitted yet
-* Test cases with 2,6 and 10 equations submitted(hitting POST API ,validate its response, call the GET API,cross-check the equations with the help of both APIs)
-
-
 ## CI pipeline
 
 * Used CircleCi as CI tool
